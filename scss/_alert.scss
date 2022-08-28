@@ -1,0 +1,49 @@
+.alert-section {
+    display: none;
+    position: none;
+    justify-content: center;
+    align-items: center;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.772), rgba(0, 0, 0, 0.5));
+    z-index: 15;
+
+    .alert-container {
+        width: 50%;
+        height: 50%;
+        background-color: white;
+        border-radius: 25px;
+
+        .alert-close {
+            display: flex;
+            flex-direction: row-reverse;
+            right: 15px;
+            color: red;
+            padding: 25px;
+            font-size: 3rem;
+
+            i {
+                cursor: pointer;
+            }
+        }
+
+        .alert-messege {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 70%;
+
+            p {
+                font-size: 2.5rem;
+                margin-bottom: 30px;
+            }
+
+            i {
+                font-size: 4rem;
+                color: red;
+            }
+        }
+    }
+}

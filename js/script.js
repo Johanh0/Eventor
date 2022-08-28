@@ -1,5 +1,11 @@
-// Search Const
+// Global Const
+const htmlWindow = document.querySelector(`html`);
 
+// Search Const
+const inputEvent = document.querySelector(`.input-event`);
+const inputCity = document.querySelector(`.input-city`);
+const inputMonth = document.querySelector(`.input-month`);
+const btnSearch = document.querySelector(`.btn-search`);
 
 // Cards Const
 const resultSection = document.querySelector(`.result-section`);
@@ -8,11 +14,20 @@ const resultSection = document.querySelector(`.result-section`);
 // const cardDescription = document.querySelector(`.text-body`);
 // const cardPrice = document.querySelector(`.text-price`);
 
+// Alert Const
+let alertStatus = false;
+const alertSection = document.querySelector(`.alert-section`);
+const closeBtn = document.querySelector(`.btn-close`);
+
 // API Client ID
 const clientId = `Mjg2MTA4MDN8MTY2MTIxMjIzMS41NDk3NjAz`;
 
 // Events Listeners
+// Event for search events
+btnSearch.addEventListener(`click`, searchEvents);
 
+// Evenet for close the alert messege
+closeBtn.addEventListener(`click`, alertWindow);
 
 
 
@@ -20,6 +35,7 @@ const clientId = `Mjg2MTA4MDN8MTY2MTIxMjIzMS41NDk3NjAz`;
 // Local events, it's the function default, this function runs when the app it's open and it search events on your location.
 
 function localEvents () {
+    // Calling the API
     fetch(`https://api.seatgeek.com/2/events?geoip=true&client_id=${clientId}&per_page=50&page=3&sort=score.desc`).then( (response) => {
 
         return response.json();
@@ -100,5 +116,36 @@ localEvents();
 // Search events, it's the function that it's going to work with the search section, this functon runs a search to bring specifics events.
 
 function searchEvents () {
+    // Making sure the inputs are filled
+    if ( inputEvent.value === `` || inputCity === `` || inputMonth === `` ) {
 
+        alertWindow();
+
+    }else {
+        // Cleaning the inputs values
+        inputEvent.value = ``;
+        inputCity.value = ``;
+        inputMonth.value = ``;
+    }
+};
+
+// Alert function, this alert it's going to pop up when it'a an error
+
+function alertWindow () {
+
+    if ( alertStatus === false ){
+        // The code it's making appear the messege if the alert status it's false, that menas if it's not there
+        alertSection.style.display = `flex`;
+        alertSection.style.position = `absolute`;
+        htmlWindow.style.overflow = `hidden`;
+
+        alertStatus = true;
+    } else if ( alertStatus === true ) {
+        // The code it's making disappear the messege if the alert it's true, that's mean if it's there
+        alertSection.style.display = `none`;
+        alertSection.style.position = `none`;
+        htmlWindow.style.overflow = `scroll`;
+
+        alertStatus = false;
+    };
 };
