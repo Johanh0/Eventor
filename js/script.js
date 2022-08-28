@@ -27,7 +27,7 @@ function localEvents () {
 
         console.log(data);
 
-        for ( let i = 0; i < 6; i++ ) {
+        for ( let i = 0; i < 15; i++ ) {
             //Create Elements
             const card = document.createElement(`div`);
             const cardImg = document.
