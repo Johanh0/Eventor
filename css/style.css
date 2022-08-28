@@ -132,7 +132,7 @@ html {
       transform: translateY(-5px);
       box-shadow: 0 2px 0 -2px #f85959, 0 8px 0 -4px #39a2db, 0 12px 10px -3px #39a2db; }
 
-.result-section {
+.cards-container {
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -144,7 +144,7 @@ html {
   /*Text*/
   /*Button*/
   /*Hover*/ }
-  .result-section .card {
+  .cards-container .card {
     width: 280px;
     height: fit-content;
     padding: .8em;
@@ -155,20 +155,20 @@ html {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
     background-color: white;
     color: #1C1B22; }
-  .result-section .card-img {
+  .cards-container .card-img {
     background-color: #ffcaa6;
     height: 55%;
     width: 100%;
     border-radius: 15px;
     transition: .3s ease; }
-    .result-section .card-img img {
+    .cards-container .card-img img {
       width: 100%;
       height: 100%;
       object-fit: cover;
       border-radius: 15px; }
-  .result-section .card-info {
+  .cards-container .card-info {
     padding-top: 10%; }
-  .result-section .card-footer {
+  .cards-container .card-footer {
     width: 90%;
     margin: 0 auto;
     display: flex;
@@ -176,36 +176,36 @@ html {
     align-items: center;
     padding-top: 10px;
     border-top: 1px solid #ddd; }
-  .result-section .card-location {
+  .cards-container .card-location {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center; }
-  .result-section .card-text_info {
+  .cards-container .card-text_info {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin: 5px; }
-  .result-section .text-title {
+  .cards-container .text-title {
     font-weight: 900;
     font-size: 2rem;
     line-height: 1.5; }
-  .result-section .text-body {
+  .cards-container .text-body {
     font-size: 1.2rem;
     padding-bottom: 10px; }
-  .result-section .text-state {
+  .cards-container .text-state {
     font-size: 1.5rem; }
-  .result-section .card-button {
+  .cards-container .card-button {
     border: 1px solid #252525;
     display: flex;
     padding: .3em;
     cursor: pointer;
     border-radius: 50px;
     transition: .3s ease-in-out; }
-  .result-section .card-img:hover {
+  .cards-container .card-img:hover {
     transform: translateY(-25%);
     box-shadow: rgba(226, 196, 63, 0.25) 0px 13px 47px -5px, rgba(180, 71, 71, 0.3) 0px 8px 16px -8px; }
-  .result-section .card-button:hover {
+  .cards-container .card-button:hover {
     border: 1px solid #ffcaa6;
     background-color: #ffcaa6; }
 

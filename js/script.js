@@ -10,11 +10,8 @@ const btnSearch = document.querySelector(`.btn-search`);
 
 // Cards Const
 const resultSection = document.querySelector(`.result-section`);
-let firstCall = false;
-// const cardImg = document.querySelector(`.card-img`);
-// const cardTitle = document.querySelector(`.text-title`);
-// const cardDescription = document.querySelector(`.text-body`);
-// const cardPrice = document.querySelector(`.text-price`);
+const cardsContainer = document.querySelector(`.cards-container`);
+let firstSearch = false;
 
 // Alert Const
 let alertStatus = false;
@@ -76,7 +73,7 @@ function searchEvents () {
         }).then( (data) => {
 
             console.log(data);
-            cardsDisplay(data);
+            newCardsDisplay(data);
         })
 
         // Cleaning the inputs values
@@ -88,13 +85,6 @@ function searchEvents () {
 };
 
 function cardsDisplay (data) {
-    // Delete previous cards for display new ones
-    // if ( firstCall === true ) {
-    // }
-    // firstCall = true;
-
-
-    //First cards by your location
     for ( let i = 0; i < 9; i++ ) {
         //Create Elements
         const card = document.createElement(`div`);
@@ -128,7 +118,8 @@ function cardsDisplay (data) {
                 textAddress.classList.add(`text-address`);
 
         // appendChild
-        resultSection.appendChild(card);
+        cardsContainer.appendChild(card);
+        // resultSection.appendChild(card);
             card.appendChild(cardImg);
                 cardImg.appendChild(img);
             card.appendChild(cardInfo);
@@ -157,6 +148,91 @@ function cardsDisplay (data) {
         // Text Price & Location
         textState.innerText = data.events[i].venue.display_location;
         textAddress.innerText = data.events[i].venue.address;
+    }
+}
+
+// Second call for new searchs
+
+function newCardsDisplay (data) {
+    // Remove old cards container with the cards
+    if ( firstSearch === false ) {
+        resultSection.removeChild(cardsContainer);
+    } else {
+        const deleteCard = document.querySelector(`.cards-container`);
+        resultSection.removeChild(deleteCard);
+    };
+
+    // Create the new cards container
+    let newCardsContainer = document.createElement(`div`);
+    newCardsContainer.classList.add(`cards-container`);
+    resultSection.appendChild(newCardsContainer);
+
+    //Creating the new cards with the function cardsDisplay
+    for ( let i = 0; i < 9; i++ ) {
+        //Create Elements
+        const card = document.createElement(`div`);
+        const cardImg = document.
+        createElement(`div`);
+            const img = document.createElement(`img`);
+        const cardInfo = document.createElement(`div`);
+            const textTitle = document.createElement(`p`);
+                const cardTextInfo = document.createElement(`div`);
+                const textBody = document.createElement(`p`);
+                const textDate = document.createElement(`p`);
+        const cardFooter = document.createElement(`div`);
+             const textPrice = document.createElement(`span`);
+             const cardLocation = document.createElement(`div`)
+                const textState = document.createElement(`span`);
+                const textAddress = document.createElement(`span`);
+
+        // Adding Classes
+        card.classList.add(`card`);
+        cardImg.classList.add(`card-img`);
+            img.classList.add(`img`);
+        cardInfo.classList.add(`card-info`);
+            textTitle.classList.add(`text-title`);
+                cardTextInfo.classList.add(`card-text_info`)
+                    textBody.classList.add(`text-body`);
+                    textDate.classList.add(`text-date`);
+        cardFooter.classList.add(`card-footer`);
+            textPrice.classList.add(`text-title`, `text-price`);
+            cardLocation.classList.add(`card-location`);
+                textState.classList.add(`text-title`, `text-state`);
+                textAddress.classList.add(`text-address`);
+
+        // appendChild
+        newCardsContainer.appendChild(card);
+        // resultSection.appendChild(card);
+            card.appendChild(cardImg);
+                cardImg.appendChild(img);
+            card.appendChild(cardInfo);
+                cardInfo.appendChild(textTitle);
+                cardInfo.appendChild(cardTextInfo);
+                    cardTextInfo.appendChild(textBody);
+                    cardTextInfo.appendChild(textDate);
+            card.appendChild(cardFooter);
+                cardFooter.appendChild(textPrice);
+                cardFooter.appendChild(cardLocation);
+                    cardLocation.appendChild(textState);
+                    cardLocation.appendChild(textAddress);
+
+        // Printing Data
+        // Img
+        img.src = data.events[i].performers[0].image;
+
+        // Title
+        textTitle.innerText = data.events[i].performers[0].short_name;
+
+        // Text Info
+        textPrice.innerText = `$ ${data.events[i].stats.lowest_price}`;
+        textBody.innerText = data.events[i].taxonomies[0].name;
+        textDate.innerText = data.events[i].datetime_local;
+
+        // Text Price & Location
+        textState.innerText = data.events[i].venue.display_location;
+        textAddress.innerText = data.events[i].venue.address;
+
+        firstSearch = true;
     }
 }
 
