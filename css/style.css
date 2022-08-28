@@ -6,7 +6,8 @@
 
 html {
   font-size: 62.5%;
-  font-family: 'DM Sans', sans-serif; }
+  font-family: 'DM Sans', sans-serif;
+  scroll-behavior: smooth; }
 
 .nav {
   position: absolute;
@@ -207,3 +208,27 @@ html {
   .result-section .card-button:hover {
     border: 1px solid #ffcaa6;
     background-color: #ffcaa6; }
+
+footer {
+  position: sticky;
+  display: flex;
+  flex-direction: row-reverse;
+  margin: 0 20px 15px 0;
+  left: 0;
+  bottom: 15px; }
+  footer a {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    background-color: #1C1B22; }
+    footer a i {
+      color: white;
+      font-size: 2rem;
+      transition: all .4s; }
+      footer a i:hover {
+        font-size: 2.5rem;
+        transition: all .4s; }

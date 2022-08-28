@@ -17,7 +17,7 @@ const clientId = `Mjg2MTA4MDN8MTY2MTIxMjIzMS41NDk3NjAz`;
 
 
 // Functions
-// Local events it's the function default, this function runs when the app it's open and it search events on your location
+// Local events, it's the function default, this function runs when the app it's open and it search events on your location.
 
 function localEvents () {
     fetch(`https://api.seatgeek.com/2/events?geoip=true&client_id=${clientId}&per_page=50&page=3&sort=score.desc`).then( (response) => {
@@ -96,3 +96,9 @@ function localEvents () {
 }
 
 localEvents();
+
+// Search events, it's the function that it's going to work with the search section, this functon runs a search to bring specifics events.
+
+function searchEvents () {
+
+};
