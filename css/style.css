@@ -136,18 +136,18 @@ html {
   justify-content: space-around;
   align-items: center;
   flex-wrap: wrap;
-  width: 80%;
+  width: 70%;
   margin: 0 auto;
   height: fit-content;
   margin-top: 80px;
-  /* From uiverse.io by @alexruix */
   /*Text*/
   /*Button*/
   /*Hover*/ }
   .result-section .card {
     width: 280px;
-    height: 300px;
+    height: fit-content;
     padding: .8em;
+    margin-bottom: 45px;
     position: relative;
     overflow: visible;
     border-radius: 15px;
@@ -156,19 +156,35 @@ html {
     color: #1C1B22; }
   .result-section .card-img {
     background-color: #ffcaa6;
-    height: 40%;
+    height: 55%;
     width: 100%;
     border-radius: 15px;
     transition: .3s ease; }
+    .result-section .card-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 15px; }
   .result-section .card-info {
     padding-top: 10%; }
   .result-section .card-footer {
-    width: 100%;
+    width: 90%;
+    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
     padding-top: 10px;
     border-top: 1px solid #ddd; }
+  .result-section .card-location {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .result-section .card-text_info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 5px; }
   .result-section .text-title {
     font-weight: 900;
     font-size: 2rem;
@@ -176,6 +192,8 @@ html {
   .result-section .text-body {
     font-size: 1.2rem;
     padding-bottom: 10px; }
+  .result-section .text-state {
+    font-size: 1.5rem; }
   .result-section .card-button {
     border: 1px solid #252525;
     display: flex;
