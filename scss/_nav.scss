@@ -1,0 +1,12 @@
+.nav {
+    position: absolute;
+    height: fit-content;
+    padding: 25px;
+    margin-left: 25px;
+    z-index: 5;
+
+    .nav-logo {
+        font-size: 2.5rem;
+        color: white;
+    }
+}

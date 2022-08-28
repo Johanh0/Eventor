@@ -1,0 +1,12 @@
+.result-section {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    width: 80%;
+    margin: 0 auto;
+    height: fit-content;
+    margin-top: 80px;
+    // background-color: red;
+    @include cards;
+}
