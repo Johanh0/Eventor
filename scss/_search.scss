@@ -11,10 +11,11 @@
     .search-container {
         position: absolute;
         display: flex;
+        flex-wrap: wrap;
         justify-content: space-around;
         align-items: center;
-        bottom: -35px;
-        width: 50%;
+        bottom: -40px;
+        min-width: 60%;
         height: 100px;
         padding: 5px;
         border-radius: 15px;
